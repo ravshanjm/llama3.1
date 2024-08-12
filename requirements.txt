@@ -1,4 +1,5 @@
 wheel
+packaging
 huggingface_hub[cli]
 transformers
 datasets
