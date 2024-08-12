@@ -31,7 +31,7 @@ tokenizer = AutoTokenizer.from_pretrained(model_name, use_fast=True)
 tokenizer.pad_token = "<|finetune_right_pad_id|>"
 tokenizer.pad_token_id = 128004
 tokenizer.padding_side = 'right'
-ds = load_dataset("aisha-org/llama3.1")
+ds = load_dataset("aisha-org/llama3.1-train-test-split")
 #Add the EOS token
 def process(row):
     row["text"] = row["text"]+"<|end_of_text|>"
