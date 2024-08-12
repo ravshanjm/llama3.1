@@ -1,5 +1,5 @@
 wheel
-huggingface-cli
+huggingface_hub[cli]
 transformers
 datasets
 accelerate
