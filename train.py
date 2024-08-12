@@ -10,6 +10,10 @@ from transformers import (
 from trl import SFTTrainer, SFTConfig
 from peft.utils.other import fsdp_auto_wrap_policy
 from accelerate import Accelerator
+import wandb
+
+wandb.login(key='190ea355e042b66c717ec2994563d1e8cf420446')
+
 
 accelerator = Accelerator()
 set_seed(1234)
@@ -82,6 +86,7 @@ training_arguments = SFTConfig(
         lr_scheduler_type="linear",
         dataset_text_field="text",
         max_seq_length=512,
+        report_to = "wandb"
 )
 trainer = SFTTrainer(
         model=model,
@@ -90,6 +95,7 @@ trainer = SFTTrainer(
         peft_config=peft_config,
         tokenizer=tokenizer,
         args=training_arguments,
+        
 )
 fsdp_plugin = trainer.accelerator.state.fsdp_plugin
 fsdp_plugin.auto_wrap_policy = fsdp_auto_wrap_policy(trainer.model)
