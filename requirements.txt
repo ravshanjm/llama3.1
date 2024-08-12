@@ -1,5 +1,6 @@
 wheel
 packaging
+torch
 huggingface_hub[cli]
 transformers
 datasets
