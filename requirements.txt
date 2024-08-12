@@ -1,0 +1,10 @@
+wheel
+huggingface-cli
+transformers
+datasets
+accelerate
+peft 
+trl 
+bitsandbytes 
+wandb
+flash-attn
